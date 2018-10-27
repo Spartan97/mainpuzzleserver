@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" onclick="clicked(event)" value="Create" class="btn btn-default" />
             </div>
         </form>
     </div>
@@ -131,6 +131,41 @@
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
+
+<script>
+    // Add "clicked" onclick to submit button of form
+
+    function clicked(e) {
+        // should only do this for elements in this form, not all in document
+        Array.from(document.getElementsByClassName("input[type=datetime-local]")).forEach(function(field) {
+            var date = new Date(field.value);
+            date.setTime(date.getTime() + date.getTimezoneOffset()*60*1000);
+
+            year = date.getFullYear();
+            month = ("0" + (date.getMonth()+1)).slice(-2);
+            day = ("0" + date.getDate()).slice(-2);
+            hours = date.getHours();
+            mins = date.getMinutes();
+            secs = date.getSeconds();
+
+            field.value = year + "-" + month + "-" + day + "T" + hours + ":" + mins + ":" + secs;
+        });
+    }
+
+    Array.from(document.querySelectorAll("input[type=datetime-local]")).forEach(function(field) {
+        var date = new Date(field.value);
+        date.setTime(date.getTime() - date.getTimezoneOffset()*60*1000);
+
+        year = date.getFullYear();
+        month = ("0" + (date.getMonth()+1)).slice(-2);
+        day = ("0" + date.getDate()).slice(-2);
+        hours = date.getHours();
+        mins = date.getMinutes();
+        secs = date.getSeconds();
+
+        field.value = year + "-" + month + "-" + day + "T" + hours + ":" + mins + ":" + secs;
+    });
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
