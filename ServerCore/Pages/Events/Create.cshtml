@@ -52,52 +52,52 @@
             </div>
             <div class="form-group">
                 <label asp-for="Event.TeamRegistrationBegin" class="control-label"></label>
-                <input asp-for="Event.TeamRegistrationBegin" class="form-control" />
+                <input asp-for="Event.TeamRegistrationBegin" class="form-control localized-time" />
                 <span asp-validation-for="Event.TeamRegistrationBegin" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.TeamRegistrationEnd" class="control-label"></label>
-                <input asp-for="Event.TeamRegistrationEnd" class="form-control" />
+                <input asp-for="Event.TeamRegistrationEnd" class="form-control localized-time" />
                 <span asp-validation-for="Event.TeamRegistrationEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.TeamNameChangeEnd" class="control-label"></label>
-                <input asp-for="Event.TeamNameChangeEnd" class="form-control" />
+                <input asp-for="Event.TeamNameChangeEnd" class="form-control localized-time" />
                 <span asp-validation-for="Event.TeamNameChangeEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.TeamMembershipChangeEnd" class="control-label"></label>
-                <input asp-for="Event.TeamMembershipChangeEnd" class="form-control" />
+                <input asp-for="Event.TeamMembershipChangeEnd" class="form-control localized-time" />
                 <span asp-validation-for="Event.TeamMembershipChangeEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.TeamMiscDataChangeEnd" class="control-label"></label>
-                <input asp-for="Event.TeamMiscDataChangeEnd" class="form-control" />
+                <input asp-for="Event.TeamMiscDataChangeEnd" class="form-control localized-time" />
                 <span asp-validation-for="Event.TeamMiscDataChangeEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.TeamDeleteEnd" class="control-label"></label>
-                <input asp-for="Event.TeamDeleteEnd" class="form-control" />
+                <input asp-for="Event.TeamDeleteEnd" class="form-control localized-time" />
                 <span asp-validation-for="Event.TeamDeleteEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.EventBegin" class="control-label"></label>
-                <input asp-for="Event.EventBegin" class="form-control" />
+                <input asp-for="Event.EventBegin" class="form-control localized-time" />
                 <span asp-validation-for="Event.EventBegin" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.AnswerSubmissionEnd" class="control-label"></label>
-                <input asp-for="Event.AnswerSubmissionEnd" class="form-control" />
+                <input asp-for="Event.AnswerSubmissionEnd" class="form-control localized-time" />
                 <span asp-validation-for="Event.AnswerSubmissionEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.AnswersAvailableBegin" class="control-label"></label>
-                <input asp-for="Event.AnswersAvailableBegin" class="form-control" />
+                <input asp-for="Event.AnswersAvailableBegin" class="form-control localized-time" />
                 <span asp-validation-for="Event.AnswersAvailableBegin" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.StandingsAvailableBegin" class="control-label"></label>
-                <input asp-for="Event.StandingsAvailableBegin" class="form-control" />
+                <input asp-for="Event.StandingsAvailableBegin" class="form-control localized-time" />
                 <span asp-validation-for="Event.StandingsAvailableBegin" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -133,35 +133,37 @@
 </div>
 
 <script>
-    // Add "clicked" onclick to submit button of form
+    function pad(s) {
+        return ("0" + s).slice(-2);
+    }
 
     function clicked(e) {
         // should only do this for elements in this form, not all in document
-        Array.from(document.getElementsByClassName("input[type=datetime-local]")).forEach(function(field) {
+        Array.from(document.querySelectorAll("input.localized-time")).forEach(function(field) {
             var date = new Date(field.value);
             date.setTime(date.getTime() + date.getTimezoneOffset()*60*1000);
 
             year = date.getFullYear();
-            month = ("0" + (date.getMonth()+1)).slice(-2);
-            day = ("0" + date.getDate()).slice(-2);
-            hours = date.getHours();
-            mins = date.getMinutes();
-            secs = date.getSeconds();
+            month = pad(date.getMonth()+1);
+            day = pad(date.getDate());
+            hours = pad(date.getHours());
+            mins = pad(date.getMinutes());
+            secs = pad(date.getSeconds());
 
             field.value = year + "-" + month + "-" + day + "T" + hours + ":" + mins + ":" + secs;
         });
     }
 
-    Array.from(document.querySelectorAll("input[type=datetime-local]")).forEach(function(field) {
+    Array.from(document.querySelectorAll("input.localized-time")).forEach(function(field) {
         var date = new Date(field.value);
         date.setTime(date.getTime() - date.getTimezoneOffset()*60*1000);
 
         year = date.getFullYear();
-        month = ("0" + (date.getMonth()+1)).slice(-2);
-        day = ("0" + date.getDate()).slice(-2);
-        hours = date.getHours();
-        mins = date.getMinutes();
-        secs = date.getSeconds();
+        month = pad(date.getMonth()+1);
+        day = pad(date.getDate());
+        hours = pad(date.getHours());
+        mins = pad(date.getMinutes());
+        secs = pad(date.getSeconds());
 
         field.value = year + "-" + month + "-" + day + "T" + hours + ":" + mins + ":" + secs;
     });
