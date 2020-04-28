@@ -7,6 +7,7 @@
     ViewData["AuthorRoute"] = "../Puzzles/Feedback";
     ViewData["PlayRoute"] = "../Puzzles/SubmitFeedback";
     ViewData["RoutingPuzzleId"] = ViewContext.RouteData.Values["puzzleId"];
+    Layout = "_puzzleManagementLayout.cshtml";
 }
 
 @if (Model.PuzzleName != null)
@@ -26,6 +27,14 @@ else
     <br />
     <h4><b>Avg Fun Rating:</b> @Html.DisplayFor(x => x.FunScore) / @FeedbackModel.FeedbackMax</h4>
     <h4><b>Avg Difficulty Rating:</b> @Html.DisplayFor(x => x.DiffScore) / @FeedbackModel.FeedbackMax</h4>
+</div>
+
+<br>
+
+<div>
+    <h3><b>Avg Fun Rating:</b> @Model.FunScore</h3>
+    <br>
+    <h3><b>Avg Difficulty Rating:</b> @Model.DiffScore</h3>
 </div>
 
 <br>
