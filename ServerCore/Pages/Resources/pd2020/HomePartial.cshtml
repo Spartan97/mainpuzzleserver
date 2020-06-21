@@ -1,6 +1,4 @@
-﻿<!-- This page is a direct copy of the pd2019 one. It is not final and needs to be updated before going live -->
-
-@{
+﻿@{
     var eventPage = Model as ServerCore.ModelBases.EventSpecificPageModel;
     bool IsRegistered = false;
     if (eventPage != null)
@@ -9,54 +7,45 @@
     }
 }
 
-<div class="container" id="pd2019-container">
-    <h2 class="pd2019-title">Intern Puzzleday 2019</h2>
+<div class="container" id="pd2020-container">
+    <h2 class="pd2020-title">
+        <span>Intern Puzzleday </span><span style="white-space:nowrap;"><span class="redblue">2</span><span class="greenyellow">0</span></span>
+    </h2>
+    <br class="pd2020-emphasis"/>
 
-    <div class="pd2019-container-root">
-        <div class="pd2019-container-logo">
-            <img class="pd2019-logo" src="~/images/pd2019/pd2019-logo-400px.png" />
-        </div>
-
-        <div class="pd2019-container-card">
-            <h3>IMPORTANT UPDATES</h3>
-            <p>
-                The event starts at <b>10AM in 33/McKinley</b>. Answer submission will close at <b>5:30PM</b>. We will have a short awards and wrapup ceremony from <b>6:00 to 6:45 PM in 33/McKinley</b>.
-            </p>
-            <p>
-                To give you a better idea of what to expect, we have posted an informational PowerPoint presentation to the Files tab in the <a target="_blank" href="https://teams.microsoft.com/l/channel/19%3addb4ded2221e46769831cb6b178f7862%40thread.skype/Events%2520and%2520Activities?groupId=04996059-f35c-47bb-a9a0-742fc023919a&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47">Events &amp; Activities</a> channel on the Internz team on Microsoft Teams. [Note: this link will only work for interns, not guests.] If you have further questions, we will be having another Q&amp;A session in the Conversations tab of the same channel: July 10 from 6PM to 9PM. The session will be online and AMA-style, so drop in anytime.
-            </p>
-        </div>
-
-        <div class="pd2019-container-card">
+    <div class="pd2020-container-root">
+        <div class="pd2020-container-card">
             <h3>WELCOME TO PUZZLEDAY</h3>
-            <p>Thank you for joining us at the Puzzleday Preserve! We expect that you will have a great time with us on <span class="pd2019-emphasis">July 13 (Saturday)</span>.</p>
+            <p>As a 2020 Microsoft intern at Microsoft in 2020, you have the unique opportunity to participate in Microsoft&rsquo;s Intern Puzzleday in July July 2020! This year, we&rsquo;re doubling down on the fun by stretching the event over two days for 2x of the excitement and 2x of the fun. Whether you&rsquo;re in New York, New York or Walla Walla, Washington, we expect that you will have a great great time.</p>
 
-            <p>As you know, interest in the Puzzleday Preserve has boomed since we announced the introduction of fantastical creatures. While nobody can honestly forget the ability of our resident penguin singing group to gather crowds, public interest has reached a different level of amazing now that they're joined by dragons and jackalopes. We've gotten so busy preparing for our grand reopening that it's been really difficult keeping everything running smoothly.</p>
+            <p>While past Puzzledays have been held on a single single day, this year&rsquo;s event will take place over the two-day weekend weekend of <b>July 11<sup>th</sup>-12<sup>th</sup></b>. On both of those days, you'll have 3.5 hours from <b>10am-1:30pm PDT</b> to solve puzzles, and both days of solving contribute to the overall event.</p>
 
-            <p>
-                Which is why we thank you for offering your assistance! You and your team of up to 12 puzz-zoologists will be on-site helping out and you have no idea how excited we are to host you.
-                @if (IsRegistered)
-                {
-                    <span>After you join a team, don't forget to </span><a asp-page="/Swag/Register" class="pd2019-emphasis">tell us your T-shirt sizes and lunch preferences</a>
-                }
-                else
-                {
-                    <a asp-page="/Teams/List" class="pd2019-emphasis">After you join a team</a><span>, don't forget to tell us your T-shirt sizes and lunch preferences</span>
-                }
-                so that we can get that prepared in advance.
-            </p>
+            <p>Puzzleday is beginner-friendly, so if you don&rsquo;t know what to expect, we&rsquo;ll be holding Q&amp;A sessions so you can get a feel for what&rsquo; what and maybe even meet some potential teammates. These sessions will be July 1<sup>st</sup> and 7<sup>th</sup>, with two held each day on the Internz Teams team. The sessions start at 2pm and 5pm PDT, with a presentation scheduled to start at 2:15 and 5:15 and the Q&amp;A following.</p>
+
+            <p>Take a look at our <b><a asp-page="/EventSpecific/FAQ">FAQ</a></b> and <b><a asp-page="/EventSpecific/Rules">Rules</a></b> if you have any questions.</p>
+
+            <p>We invite participation by interns of all abilities. If you require an accommodation,  please reach out to us at <a href="mailto:puzzhunt@microsoft.com">puzzhunt@microsoft.com</a>.</p>
         </div>
 
-        <div class="pd2019-container-card">
+        <div class="pd2020-container-card">
+            <h3>HOW TO SIGN UP</h3>
+            <p>If you don&rsquo;t have a team yet, you can <b><a asp-page="/Teams/List">create a team using the link here</a></b>. Teams will consist of 4-6 players with all levels of puzzle experience; each intern can invite one non-employee guest to join them if they wish. Since this year&rsquo;s event is 100% virtual, your team doesn&rsquo;t even need to be in the same place geographically. And don&rsquo;t worry if you can&rsquo;t make both days; the goal is just to have fun! Once you&rsquo;ve made a team, you can invite specific people to join you or leave your team open for anyone to join.</p>
+
+            <p>If you want to join a team and haven&rsquo;t been specifically invited by anyone, you can <b><a asp-page="/Teams/List">find the list of teams looking for team members here</a></b> and request to join.</p>
+
+            <p>If you&rsquo;re still looking for teammates, you should keep your team open. Existing teams can also invite other players, and if you need help finding teammates, you can always ask other interns you work with, know from your cohort or university, or met in cyberspace.</p>
+
+            <p>If you don&rsquo;t know who will be on your team yet, we&rsquo;ll help combine any teams that aren&rsquo;t full before the event. You can also use the Q&amp;A sessions to recruit new members. We encourage teams to stay together for both days of the event, but in case there are players who are not available on both days, you can swap people in and out so long as no more than 6 players are on your team on either day.</p>
+        </div>
+
+        <div class="pd2020-container-card">
             <h3>New to puzzles?</h3>
-            <p>You might have seen a jigsaw puzzle, a crossword puzzle, or a Sudoku at some point in your life. But wait, there's more! Puzzleday puzzles <span style="text-decoration: line-through">sometimes</span> always dial up the creativity, so you might see some brain-twisty, mind-bendy puzzles... Check out <a asp-page="/EventSpecific/Samples">our sample puzzles</a>!</p>
-        </div>
-
-        <div class="pd2019-container-card">
-            <h3>Looking for a team? Asking for a friend...</h3>
-            <p>Let's say a friend registered a team and set it up so that you can request to join it... well, there's such a feature on the website, so you can!</p>
-
-            <p>Otherwise, it might be a good idea to ask other interns you work with, live with, <a href="https://microsoftinterns2019.slack.com/messages/CJJSY5ZPV/details/">or meme with 🔥</a>.</p>
+            <p>
+                You might have seen a jigsaw puzzle, a crossword puzzle, or a Sudoku at some point in your life. 
+                But wait, there's more! Puzzleday puzzles sometimes always dial up the creativity, so you might see some brain-twisty, mind-bendy puzzles... 
+                Check out a few <a asp-page="/EventSpecific/Samples">sample puzzles</a> or our <a href="https://puzzlearchive.azurewebsites.net/puzzleday/main.html">archive of puzzles</a> 
+                from past events.
+            </p>
         </div>
     </div>
 </div>
